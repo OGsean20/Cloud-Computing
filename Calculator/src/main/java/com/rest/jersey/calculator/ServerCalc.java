@@ -167,4 +167,21 @@ public class ServerCalc {
 			    "</calc>";
 	}
 	
+	@GET
+	@Path("/sqrt/{a}")
+	@Produces(MediaType.TEXT_XML)
+	//Invocation string: http://localhost:8080/Calculator/calc/div/{a}/{b}
+	public String sqrt(@PathParam("a") double a, @PathParam("b") double b) {
+		return "<?xml version=\"1.0\"?>\n" +
+		           "<calc>\n" +
+		           "  <operand>\n" +
+		           "    <a>" + a + "</a>\n" +
+		           "  </operand>\n" +
+		           "  <operation>sqrt</operation>\n" +
+		           "  <result>\n" +
+		           "     <c>" + Math.sqrt(a) + "</c>\n" +
+		           "  </result>\n" +
+		           "</calc>";
+	}
+	
 }

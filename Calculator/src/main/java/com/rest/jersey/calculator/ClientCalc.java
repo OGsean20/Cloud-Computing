@@ -39,6 +39,11 @@ public class ClientCalc {
 		
 		System.out.println(webTarget.path("calc").path("div").path("10").path("2").request()
 				.accept(MediaType.TEXT_XML).get(String.class));
+		
+		System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("sqrt").path("10").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
 	}
 
 }
