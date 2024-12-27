@@ -7,7 +7,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
-import javax.ws.rs.client.Entity;
 import org.glassfish.jersey.client.ClientConfig;
 
 public class ClientCalc {
@@ -43,6 +42,31 @@ public class ClientCalc {
 		System.out.println("\n");
 		
 		System.out.println(webTarget.path("calc").path("sqrt").path("10").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+		
+        System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("pow").path("10").path("2").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+		
+        System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("fac").path("4").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+		
+        System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("sin").path("4").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+		
+        System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("cos").path("4").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+		
+        System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("tan").path("4").request()
 				.accept(MediaType.TEXT_XML).get(String.class));
 	}
 
