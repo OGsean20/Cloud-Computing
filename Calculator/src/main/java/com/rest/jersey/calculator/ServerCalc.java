@@ -104,7 +104,7 @@ public class ServerCalc {
 	@GET
 	@Path("/pow/{a}/{b}")
 	@Produces(MediaType.TEXT_XML)
-	// Invocation string: http://localhost:8080/Calculator/calc/pow/{a}/{b}
+	// Invocation string: http://localhost:8080/Calculator/calc/pow/5/2
 	public String pow(@PathParam("a") double a, @PathParam("b") double b) {
 	    return "<?xml version=\"1.0\"?>\n" +
 	           "<calc>\n" +
@@ -191,5 +191,41 @@ public class ServerCalc {
 	           "     <c>" + Math.tan(a) + "</c>\n" +
 	           "  </result>\n" +
 	           "</calc>";
+	}
+	
+	@GET
+	@Path("/log/{a}")
+	@Produces(MediaType.TEXT_XML)
+	// Invocation string: http://localhost:8080/Calculator/calc/log10/{1000}
+	public String log(@PathParam("a") double a) {
+		return "<?xml version=\"1.0\"?>\n" +
+		           "<calc>\n" +
+		           "  <operand>\n" +
+		           "    <a>" + a + "</a>\n" +
+		           "  </operand>\n" +
+		           "  <operation>log</operation>\n" +
+		           "  <result>\n" +
+		           "     <c>" + Math.log10(a) + "</c>\n" +
+		           "  </result>\n" +
+		           "</calc>";
+		
+	}
+	
+	@GET
+	@Path("/ln/{a}")
+	@Produces(MediaType.TEXT_XML)
+	// Invocation string: http://localhost:8080/Calculator/calc/ln/{a}
+	public String ln(@PathParam("a") double a) {
+		return "<?xml version=\"1.0\"?>\n" +
+		           "<calc>\n" +
+		           "  <operand>\n" +
+		           "    <a>" + a + "</a>\n" +
+		           "  </operand>\n" +
+		           "  <operation>ln</operation>\n" +
+		           "  <result>\n" +
+		           "     <c>" + Math.log(a) + "</c>\n" +
+		           "  </result>\n" +
+		           "</calc>";
+		
 	}
 }

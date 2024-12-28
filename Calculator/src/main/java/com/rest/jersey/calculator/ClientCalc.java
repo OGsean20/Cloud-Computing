@@ -68,6 +68,14 @@ public class ClientCalc {
 		
 		System.out.println(webTarget.path("calc").path("tan").path("4").request()
 				.accept(MediaType.TEXT_XML).get(String.class));
+		
+		System.out.println(webTarget.path("calc").path("log").path("1000").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
+		
+        System.out.println("\n");
+		
+		System.out.println(webTarget.path("calc").path("ln").path("2.718281828").request()
+				.accept(MediaType.TEXT_XML).get(String.class));
 	}
 
 }
