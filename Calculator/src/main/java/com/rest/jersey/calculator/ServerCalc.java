@@ -3,13 +3,11 @@ package com.rest.jersey.calculator;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.PathParam;
 
 
 @Path("/calc") 
-@Consumes(MediaType.APPLICATION_JSON) 
 public class ServerCalc {
 	
 	@GET
@@ -31,8 +29,8 @@ public class ServerCalc {
 	}
 	
 	@GET
-	@Produces(MediaType.TEXT_XML)
 	@Path("/add/{a}/{b}")
+	@Produces(MediaType.TEXT_XML)
 	//Invocation string: http://localhost:8080/Calculator/calc/add/{a}/{b}
 	public String add(@PathParam("a") double a, @PathParam("b") double b) {
 		return  "<?xml version=\"1.0\"?>\n" +
@@ -88,7 +86,7 @@ public class ServerCalc {
 	@Path("/sqrt/{a}")
 	@Produces(MediaType.TEXT_XML)
 	//Invocation string: http://localhost:8080/Calculator/calc/sqrt/{a}
-	public String sqrt(@PathParam("a") double a, @PathParam("b") double b) {
+	public String sqrt(@PathParam("a") double a) {
 		return "<?xml version=\"1.0\"?>\n" +
 		           "<calc>\n" +
 		           "  <operand>\n" +
@@ -122,7 +120,7 @@ public class ServerCalc {
 	@GET
 	@Path("/fac/{a}")
 	@Produces(MediaType.TEXT_XML)
-	// Invocation string: http://localhost:8080/Calculator/calc/fac/4
+	// Invocation string: http://localhost:8080/Calculator/calc/fac/{a}
 	public String fac(@PathParam("a") int a) {
 	    
 	    int result = 1;
